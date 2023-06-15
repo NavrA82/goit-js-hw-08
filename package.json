@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://Rummut.github.io/Blended-parsel",
+  "homepage": "https://navra82.github.io/goit-js-hw-07/",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /Blended-parsel/"
+    "build": "parcel build src/*.html --public-url /goit-js-hw-07/"
   },
   "repository": {
     "type": "git",
