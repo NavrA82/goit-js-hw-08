@@ -1,58 +1,33 @@
 // Add imports above this line
 import { galleryItems } from './gallery-items';
 // Change code below this line
-// import SimpleLightbox from 'simplelightbox';
-// console.log(galleryItems);
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const list = document.querySelector('.gallery');
-list.addEventListener('click', onClickList);
+createGalleryMarkup();
 
-console.log(createGalleryMarkup(galleryItems));
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionDelay: 250,
+  captionsData: 'alt',
+});
 
-const instance = basicLightbox.create(
-  `<img class="gallery__image-modal" src="" width="800" height="600">`,
-  {
-    onShow: instance => {
-      window.addEventListener('keydown', onEscKayPress);
-    },
-    onClose: instance => {
-      window.removeEventListener('keydown', onEscKayPress);
-    },
-  }
-);
-
-function onClickList(evt) {
-  evt.preventDefault();
-  if (!evt.target.classList.contains('gallery__image')) {
-    return;
-  }
-  instance.element().querySelector('img').src = evt.target.dataset.source;
-
-  instance.show();
-}
-
-function onEscKayPress(evt) {
-  if (evt.code !== 'Escape') {
-    return;
-  }
-  instance.close();
-}
-
-function createGalleryMarkup(galleryItems) {
+function createGalleryMarkup() {
   const elementGalleryMarkup = galleryItems
     .map(({ description, original, preview }) => {
-      return `
+      return ` 
     <li class="gallery__item">
-    <a class="gallery__link" href="${original}">
-    <img
-      class="gallery__image"
-      src="${preview}"
-      data-source="${original}"
-      alt="${description}"
-    />
-    </a>
+      <a class="gallery__link" href="${original}">
+        <img
+          class="gallery__image"
+          src="${preview}"
+          alt="${description}"
+        />
+      </a>
     </li>`;
     })
     .join('');
 
   list.insertAdjacentHTML('beforeend', elementGalleryMarkup);
+  list.style.cssText = 'list-style: none;';
 }
