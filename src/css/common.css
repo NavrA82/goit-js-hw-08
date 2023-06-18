@@ -16,3 +16,29 @@ img {
   display: block;
   max-width: 100%;
 }
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+}
+
+.list-item {
+  max-width: 200px;
+  width: 200px;
+  background-color: #4d5ae5;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: #fafafad2;
+  text-align: center;
+}
+.list-item-link {
+  padding: 0 40px;
+  text-decoration: none;
+  color: #fafafad2;
+}
+.list-item:hover,
+.list-item:focus {
+  background-color: #404bbf;
+}
