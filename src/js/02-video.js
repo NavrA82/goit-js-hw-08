@@ -9,7 +9,7 @@ player.on(
   throttle(data => {
     const LOCALSTORAGE_VALUE = data.seconds;
     localStorage.setItem(LOCALSTORAGE_KEY, LOCALSTORAGE_VALUE);
-  }, 1000)
+  }, 2000)
 );
 
 player
